@@ -1,0 +1,9 @@
+comment
+reply
+Avartar
+Text
+userName
+Button
+inputArea
+TagName
+VoteCounter

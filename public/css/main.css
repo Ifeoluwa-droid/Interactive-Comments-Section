@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+}
+
+body {
+  background-color: #eaecf1;
+  padding: 3rem;
+}
+
+.vote-counter {
+  background-color: #eaecf1;
+  padding: 1rem 0;
+  border-radius: .7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 8em;
+      flex-basis: 8em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  gap: 1.5em !important;
+}
+
+.votes {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #5457b6;
+}
+
+.icon {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.avartar {
+  border-radius: 50%;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.username {
+  font-weight: 700;
+}
+
+.post-time {
+  font-weight: 400;
+}
+
+.button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .7rem;
+  cursor: pointer;
+}
+
+.button {
+  font-weight: 500;
+  color: #5457b6;
+}
+
+.comment {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 54%;
+  margin: 0 auto;
+}
+
+.comment > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.comment > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.comment > div > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.reply-section {
+  width: 54%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+
+.reply-section::before {
+  content: '';
+  position: absolute;
+  background: #67727e;
+  width: 2px;
+  height: 90%;
+  top: 50%;
+  left: calc((100% - 90%) / 2);
+  -webkit-transform: translateY(-50%) translateX(calc(-1 * ((100% - 80%) / 2)));
+          transform: translateY(-50%) translateX(calc(-1 * ((100% - 80%) / 2)));
+}
+
+.comment-text {
+  font-weight: 400;
+}
+
+.input-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background: white;
+  width: 54%;
+  margin: 0 auto;
+  border-radius: 1rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.input-area textarea {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  padding: 1rem;
+  border-radius: .5rem;
+  resize: none;
+  white-space: nowrap;
+}
+
+.tag-name {
+  color: #5457b6;
+  font-weight: 700;
+}
+
+.you-tag {
+  padding: .1rem .3rem;
+  color: white;
+  border-radius: .1rem;
+  background-color: #5457b6;
+}
+/*# sourceMappingURL=main.css.map */

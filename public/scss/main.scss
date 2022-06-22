@@ -1,0 +1,137 @@
+@import 'config';
+
+
+.vote-counter {
+    background-color: $light-gray;
+    padding: 1rem 0;
+    border-radius: .7rem;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 8em;
+    align-items: center;
+    height: max-content;
+    gap: 1.5em !important;
+}
+
+.votes {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $moderate-blue;
+}
+
+.icon {
+    width: fit-content;
+}
+
+.avartar {
+    border-radius: 50%;
+    transform: scale(.7);
+}
+
+.username {
+    font-weight: 700;
+}
+
+.post-time {
+    font-weight: 400;
+}
+
+.button {
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    cursor: pointer;
+}
+
+.button {
+    font-weight: 500;
+    color: $moderate-blue;
+}
+
+.comment {
+    background: $white;
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 54%;
+    margin: 0 auto;
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        & > div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            & > div {
+                display: flex;
+                flex-direction: row; 
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    }
+}
+
+.reply-section {
+    width: 54%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        background: $grayish-blue;
+        width: 2px;
+        height: 90%;
+        top: 50%;
+        left: calc((100% - 90%) / 2);
+        transform: translateY(-50%) translateX(calc(-1 * ((100% - 80%) / 2)));
+    }
+}
+
+.comment-text {
+    font-weight: 400;
+}
+
+.input-area {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background: $white;
+    width: 54%;
+    margin: 0 auto;
+    border-radius: 1rem;
+    align-items: flex-start;
+
+    & textarea {
+        flex: auto;
+        padding: 1rem;
+        border-radius: .5rem;
+        resize: none;
+        white-space: nowrap;
+    }
+}
+
+.tag-name {
+    color: $moderate-blue;
+    font-weight: 700;
+}
+
+.you-tag {
+    padding: .1rem .3rem;
+    color: $white;
+    border-radius: .1rem;
+    background-color: $moderate-blue;
+}

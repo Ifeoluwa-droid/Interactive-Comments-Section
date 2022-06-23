@@ -14,13 +14,18 @@
 }
 
 .votes {
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1.5rem;
     color: $moderate-blue;
 }
 
 .icon {
     width: fit-content;
+    cursor: pointer;
+}
+
+.icon:active {
+    filter: $moderate-blue;
 }
 
 .avartar {
@@ -45,11 +50,12 @@
     align-items: center;
     gap: .7rem;
     cursor: pointer;
-}
-
-.button {
     font-weight: 500;
     color: $moderate-blue;
+}
+
+.button:active {
+    opacity: .5;
 }
 
 .comment {
@@ -57,7 +63,7 @@
     display: flex;
     gap: 2rem;
     padding: 2rem;
-    border-radius: 1rem;
+    border-radius: .8rem;
     width: 54%;
     margin: 0 auto;
 
@@ -93,9 +99,9 @@
         content: '';
         position: absolute;
         background: $grayish-blue;
-        width: 2px;
-        height: 90%;
-        top: 50%;
+        width: 1px;
+        height: 95%;
+        top: 49%;
         left: calc((100% - 90%) / 2);
         transform: translateY(-50%) translateX(calc(-1 * ((100% - 80%) / 2)));
     }
@@ -135,3 +141,106 @@
     border-radius: .1rem;
     background-color: $moderate-blue;
 }
+
+.show-on-mobile {
+    display: none !important;
+}
+
+
+/********* Media Queries *********/ 
+
+@media screen and (max-width: 1418px) {
+    .comment, .reply-section, .input-area {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1288px) {
+    .comment, .reply-section, .input-area {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1112px) {
+    .comment, .reply-section, .input-area {
+        width: 75%;
+    } 
+}
+
+@media screen and (max-width: 1054px) {
+    .comment, .reply-section, .input-area {
+        width: 80%;
+    } 
+}
+
+@media screen and (max-width: 1000px) {
+    .comment, .reply-section, .input-area {
+        width: 85%;
+    } 
+}
+
+@media screen and (max-width: 960px) {
+    .comment, .reply-section, .input-area {
+        width: 90%;
+    } 
+}
+
+@media screen and (max-width: 910px) {
+    .comment, .reply-section, .input-area {
+        width: 95%;
+    } 
+}
+
+@media screen and (max-width: 850px) {
+    .comment, .reply-section, .input-area {
+        width: 100%;
+    } 
+}
+
+@media screen and (max-width: 812px) {
+    body {
+        padding: 3rem 1rem;
+    }
+
+    .show-on-mobile {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between;
+
+        & .vote-counter {
+            justify-content: center;
+            padding: .5rem 0;
+        }
+    }
+
+    .unshow-on-mobile {
+        display: none !important;
+    }
+
+    .comment {
+        flex-direction: column-reverse;
+    }
+
+    .input-area {
+        flex-direction: column-reverse;
+
+        & > div, & textarea{
+            flex: auto;
+            width: 100%;
+        }
+    }
+
+    .reply-section::before {
+        left: 0;
+    }
+
+    .reply {
+        width: 95% !important;
+    }
+
+    .votes {
+        font-size: 1.2rem;
+    }
+}
+
+

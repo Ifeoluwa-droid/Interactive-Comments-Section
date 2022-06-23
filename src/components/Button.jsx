@@ -1,6 +1,6 @@
 const Button = (props) => {
     return ( 
-        <button className="button" style={props.style} onClick={() => {props.Onclick(props.id)}}>
+        <button className={`button ${props.className}`} style={props.style} onClick={() => {props.onClick(props.id)}}>
             {props.hasIcon && <img src={props.icon} alt={props.alt}/>}
             {props.text}
         </button>

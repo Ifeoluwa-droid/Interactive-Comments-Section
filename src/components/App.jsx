@@ -1,28 +1,24 @@
 import {Comment, Reply} from "./Comment";
+import {useState} from 'react';
 import InputArea from "./InputArea";
 import { commentSectionStyle } from "../styles";
 import useFetch from "../hooks/useFetch";
 
 const App = () => {
 
-    // const [comments, setComments] = useState(null);
-    // const [user, setUser] = useState(null);
+    const [replyId, setReplyId] = useState(null);
 
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
+    const handleReply = (id) => {
+        setReplyId(id);
+    }
 
-    // async function fetchData() {
-    //     const commentData = await fetch('http://localhost:8000/comments').then(res => res.json()).then(data => {
-    //         return data;
-    //     });
+    const handleEdit = (id) => {
+        console.log(id);
+    }
 
-    //     await fetch('http://localhost:8000/currentUser').then(res => res.json()).then(data => {
-    //         setComments(commentData);
-    //         setUser(data);
-    //         console.log(data);
-    //     });
-    // }
+    const handleDelete = (id) => {
+        console.log(id);
+    }
 
     const comments = useFetch('http://localhost:8000/comments');
     const user = useFetch('http://localhost:8000/currentUser');
@@ -39,21 +35,45 @@ const App = () => {
                         commenter={comment.user.username}
                         postTime={comment.createdAt}
                         comment={comment.content}
-                        // onReply={handleReply}
+                        onReply={handleReply}
+                        onEdit={handleEdit}
+                        onDelete={handleDelete}
                     />
+
+                    {replyId === comment.id && 
+                        <InputArea
+                            userImage={user.image.png}
+                        />
+                    }
 
                     <div class="reply-section">
                         {
                         comment.replies.map(reply => 
-                            <Reply
-                                isUserReply={user ? user.username === reply.user.username : null}
-                                votes={reply.score}
-                                replyingTo={reply.replyingTo}
-                                avatar={reply.user.image.png}
-                                replier={reply.user.username}
-                                replyTime={reply.createdAt}
-                                reply={reply.content}
-                            />)
+                            <div style={commentSectionStyle}>
+                                <Reply
+                                    id={reply.id}
+                                    isUserReply={user ? user.username === reply.user.username : null}
+                                    votes={reply.score}
+                                    replyingTo={reply.replyingTo}
+                                    avatar={reply.user.image.png}
+                                    replier={reply.user.username}
+                                    replyTime={reply.createdAt}
+                                    reply={reply.content}
+                                    onReply={handleReply}
+                                    onEdit={handleEdit}
+                                    onDelete={handleDelete}
+                                />
+                                {replyId === reply.id && 
+                                    <InputArea
+                                          style={{
+                                            width: '90%',
+                                            margin: '0 0 0 auto'
+                                            }}
+                                        userImage={user.image.png}
+                                    />
+                                }
+                            </div>
+                            )
                         }
                     </div>
                 </div>) : <h1>Loading comments.....</h1>}

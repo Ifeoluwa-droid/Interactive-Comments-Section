@@ -1,14 +1,7 @@
 import {useState, useEffect} from 'react';
+import fetchData from '../fetchData';
 
 
-const fetchData = async (url, setData, method) => {
-    const rawData = await fetch(url, {
-        method: `${method}`,
-        // headers: {'Content-Type': 'application/json'}
-    });
-    const data = await rawData.json();
-    setData(data);
-}
 
 const useFetch = (url) => {
 

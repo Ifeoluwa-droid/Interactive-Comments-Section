@@ -3,13 +3,22 @@ import {useState} from 'react';
 import InputArea from "./InputArea";
 import { commentSectionStyle } from "../styles";
 import useFetch from "../hooks/useFetch";
+// import { useHistory } from "react-router-dom";
+import fetchData from "../fetchData";
 
 const App = () => {
 
-    const [replyId, setReplyId] = useState(null);
+    const [commentId, setCommentId] = useState(null);
+    const [newCommentInput, setNewCommentInput] = useState('');
+    // const history = useHistory();
+
+    const handleCommentInputChanged = (event) => {
+        const value = event.target.value;
+        setNewCommentInput(value);
+    }
 
     const handleReply = (id) => {
-        setReplyId(id);
+        setCommentId(id);
     }
 
     const handleEdit = (id) => {
@@ -18,6 +27,27 @@ const App = () => {
 
     const handleDelete = (id) => {
         console.log(id);
+    }
+
+    const handleSend =  (e) => {
+        e.preventDefault();
+
+        const newComment = {
+            content: newCommentInput,
+            createdAt: '', /* new Date(), */
+            score: 0,
+            user: {
+                image : { 
+                    png: "./images/avatars/image-juliusomo.png",
+                    webp: "./images/avatars/image-juliusomo.webp"
+                },
+                username: "juliusomo"
+            },
+            replies: []
+        } 
+        
+        fetchData('http://localhost:8000/comments', () => { setNewCommentInput('')}, 'POST', {body: JSON.stringify(newComment)});
+
     }
 
     const comments = useFetch('http://localhost:8000/comments');
@@ -40,7 +70,7 @@ const App = () => {
                         onDelete={handleDelete}
                     />
 
-                    {replyId === comment.id && 
+                    {commentId === comment.id && 
                         <InputArea
                             userImage={user.image.png}
                         />
@@ -63,7 +93,7 @@ const App = () => {
                                     onEdit={handleEdit}
                                     onDelete={handleDelete}
                                 />
-                                {replyId === reply.id && 
+                                {commentId === reply.id && 
                                     <InputArea
                                           style={{
                                             width: '90%',
@@ -78,6 +108,9 @@ const App = () => {
                     </div>
                 </div>) : <h1>Loading comments.....</h1>}
             {user ? <InputArea
+                value={newCommentInput}
+                onCommentInputChanged={handleCommentInputChanged}
+                onSubmit={handleSend}
                 userImage={user.image.png}
              /> : <div>Loading user....</div>}
         </div>
